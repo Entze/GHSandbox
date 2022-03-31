@@ -41,7 +41,7 @@ def process_answer(message):
     cylinder_height = 0
     for symbol in message["1"]:
         if symbol["name"] == "cylinderHeight":
-            cylinder_height = 10
+            cylinder_height = symbol["arguments"][0]
     return cylinder_height
 
 
@@ -55,10 +55,11 @@ def connect(port=8008):
 
 
 def main():
+    global x
     clientsocket = connect()
 
     print "Send message."
-    send(clientsocket, {"request": "0"})
+    send(clientsocket, {"request": x})
     message = receive(clientsocket)
     global a
     a = process_answer(message)

@@ -94,7 +94,8 @@ def listen(port=8008, backlog=5):
 
 
 def process_request(request):
-    return solve("cylinderHeight(10). serialNr_obj(1, 1). serialNr_obj(2, 2). -holds(a). holds(-b).")
+    print(request)
+    return solve(f"cylinderHeight({request['request'] + 10}). serialNr_obj(1, 1). serialNr_obj(2, 2). -holds(a). holds(-b).")
 
 
 def main():
