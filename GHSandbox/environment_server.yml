@@ -1,7 +1,0 @@
-name: GHSandbox_server
-channels:
-  - conda-forge
-  - potassco
-dependencies:
-  - python >=3.5,<4
-  - clingo==5.5
