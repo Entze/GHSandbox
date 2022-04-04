@@ -75,6 +75,7 @@ def solve(program):
         elif solve_result.unsatisfiable:
             solve_result_str = "UNSAT"
 
+    nr_of_models_str = "{}{}".format(nr_of_models, '+' if not exhausted else '')
     payload = {"Solve Result": solve_result_str, "Models": nr_of_models}
     for i, model in enumerate(models):
         payload[i + 1] = symbols_to_dict(model)
